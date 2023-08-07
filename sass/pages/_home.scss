@@ -1,0 +1,341 @@
+/* Start Landing Page */
+.landing {
+  height: 100vh;
+  .container {
+    .landing-content {
+      height: $full;
+    }
+    height: $full;
+  }
+  .landing-content {
+    @extend %flex;
+    @include mobile {
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+    @include tablet {
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+  }
+  .info {
+    width: 45%;
+    h1 {
+      font-size: 50px;
+      text-transform: capitalize;
+      letter-spacing: 1px;
+    }
+    p {
+      margin: {
+        top: 20px;
+        bottom: 20px;
+      }
+      line-height: 2;
+      font-size: 20px;
+    }
+    /* Landing In Media Queries */
+    @include mobile {
+      order: 2;
+      width: $full;
+      text-align: center;
+      h1 {
+        font-size: 30px;
+      }
+      p {
+        line-height: 1.8;
+        font-size: 14px;
+      }
+      .btn {
+        display: block;
+        margin: {
+          left: auto;
+          right: auto;
+        }
+      }
+    }
+    @include tablet {
+      margin-top: 20px;
+      order: 2;
+      width: $full;
+      text-align: center;
+      .btn {
+        margin: {
+          left: auto;
+          right: auto;
+        }
+      }
+    }
+    .btn {
+      display: block;
+    }
+  }
+  .image {
+    width: 50%;
+    margin-left: 30px;
+    @include mobile {
+      order: 1;
+      width: $full;
+    }
+    @include tablet {
+      order: 1;
+      width: $full;
+    }
+  }
+}
+/* End Landing Page */
+/* Start About Us */
+.about {
+  .about-content {
+    @extend %flex;
+    margin-bottom: 30px;
+    padding: {
+      top: 20px;
+      bottom: 20px;
+    }
+    &:first-child {
+      .info {
+        order: 2;
+      }
+      .image {
+        order: 1;
+      }
+    }
+    // Mode Mobile
+    @include mobile {
+      flex-direction: column;
+      text-align: center;
+      margin: {
+        left: auto;
+        right: auto;
+      }
+      .info,
+      .image {
+        width: $full;
+      }
+      .info {
+        margin-bottom: 30px;
+        h2 {
+          font-size: 25px;
+        }
+      }
+      &:first-child {
+        .info {
+          order: 1;
+        }
+        .image {
+          order: 2;
+        }
+      }
+    }
+  }
+  .info {
+    width: 40%;
+    h2 {
+      font-size: 40px;
+      text-transform: capitalize;
+      margin-bottom: 10px;
+    }
+    p {
+      opacity: 0.7;
+    }
+  }
+  .image {
+    width: $full / 2;
+  }
+}
+/* End About Us */
+/* Start Services */
+.services {
+  padding: {
+    top: 20px;
+    bottom: 20px;
+  }
+  .title {
+    text-align: center;
+    margin: {
+      top: 20px;
+      bottom: 20px;
+    }
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    font-size: 30px;
+  }
+  .services-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+    text-transform: capitalize;
+    .box {
+      padding: {
+        top: 40px;
+        bottom: 40px;
+        left: 20px;
+        right: 20px;
+      }
+      background-color: #f6f6f6;
+      @include prefix(border-radius, 20px, webkit moz o);
+      h3 {
+        font-size: 20px;
+        letter-spacing: 1px;
+      }
+      p {
+        opacity: 0.7;
+        line-height: 1.7;
+        font-size: 16px;
+        margin: {
+          top: 10px;
+          bottom: 10px;
+        }
+      }
+      .image {
+        width: $full / 2;
+        margin: {
+          left: auto;
+          right: auto;
+          top: 20px;
+          bottom: 20px;
+        }
+      }
+      a {
+        font-weight: 500;
+      }
+    }
+  }
+  // Services In Dark
+  &.dark {
+    .box {
+      background-color: rgb(102 100 94 / 15%);
+    }
+  }
+}
+/* End Services */
+/* Start Watch Delevery */
+.watch-delevery {
+  padding: {
+    top: 100px;
+    bottom: 100px;
+  }
+  .watch-delevery-content {
+    @extend %flex;
+    .info {
+      width: 35%;
+      h3 {
+        font-size: 30px;
+        letter-spacing: 1px;
+        text-transform: capitalize;
+      }
+      p {
+        opacity: 0.7;
+        line-height: 1.7;
+        margin: {
+          top: 15px;
+          bottom: 15px;
+        }
+      }
+    }
+    .btn {
+      margin-bottom: 10px;
+    }
+    .image {
+      width: $full / 2;
+    }
+    @include mobile {
+      flex-direction: column;
+      text-align: center;
+      .image {
+        margin-bottom: 30px;
+      }
+      .image,
+      .info {
+        width: $full;
+      }
+      .btn {
+        display: block;
+        margin: {
+          left: auto;
+          right: auto;
+          top: 10px;
+          bottom: 10px;
+        }
+      }
+    }
+    @include tablet {
+      .btn {
+        display: block;
+        margin: {
+          left: auto;
+          right: auto;
+          top: 10px;
+          bottom: 10px;
+        }
+      }
+    }
+  }
+}
+/* End Watch Delevery */
+/* Start Contact Us */
+.contact {
+  padding: {
+    top: 40px;
+    bottom: 40px;
+  }
+  .contact-content {
+    flex-wrap: wrap;
+    @extend %flex;
+    .info {
+      width: 40%;
+      h2 {
+        font-size: 30px;
+        margin-bottom: 10px;
+        text-transform: capitalize;
+      }
+      p {
+        opacity: 0.7;
+        line-height: 1.7;
+      }
+    }
+    .my-info {
+      li {
+        margin-bottom: 10px;
+        font-weight: bold;
+        span {
+          font-weight: normal;
+          padding-left: 5px;
+        }
+      }
+    }
+    @include mobile {
+      .info {
+        text-align: center;
+        width: $full;
+      }
+      .my-info {
+        margin: {
+          top: 20px;
+          bottom: 20px;
+          left: auto;
+          right: auto;
+        }
+      }
+      .btn {
+        display: block;
+        margin: {
+          left: auto;
+          right: auto;
+        }
+      }
+    }
+    @include tablet {
+      .btn {
+        display: block;
+        margin: {
+          left: auto;
+          right: auto;
+        }
+      }
+    }
+  }
+}
+/* End Contact Us */

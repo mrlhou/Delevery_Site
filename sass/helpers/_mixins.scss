@@ -1,0 +1,24 @@
+// Media Queris
+@mixin mobile {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (min-width: 768px) and (max-width: 991px) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media (min-width: 991px) {
+    @content;
+  }
+}
+
+@mixin prefix($property, $value, $prefixes: ()) {
+  // Output standard non-prefixed declaration
+  #{$property}: $value;
+  @each $prefix in $prefixes {
+    #{'-' + $prefix + '-' + $property}: $value;
+  }
+}

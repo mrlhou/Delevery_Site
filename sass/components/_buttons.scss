@@ -1,0 +1,48 @@
+.btn {
+  width: 150px;
+  height: 40px;
+  text-align: center;
+  outline: none;
+  @include prefix(border-radius, 30px, webkit moz o);
+  @include prefix(transition, 0.4s, webkit moz o);
+  color: $txt-color;
+  border: 0;
+  text-transform: capitalize;
+  background-color: rgba($bg-color, 0.9);
+  font: {
+    size: 16px;
+    weight: bold;
+  }
+  cursor: pointer;
+  &:hover {
+    background-color: $bg-color;
+  }
+  @include mobile {
+    display: none;
+  }
+  @include tablet {
+    display: none;
+  }
+}
+
+.scroll-up {
+  $width: 40px;
+  position: fixed;
+  right: $width;
+  bottom: -$full;
+  text-align: center;
+  width: $width - 10px;
+  line-height: $width - 5px;
+  cursor: pointer;
+  height: $width - 5px;
+  justify-content: center;
+  @include prefix(transition, 0.4s, webkit moz o);
+  @include prefix(border-radius, 5px, webkit moz o);
+  background-color: rgba($bg-color, 0.9);
+  &:hover {
+    background-color: $bg-color;
+  }
+  &.show {
+    bottom: $width;
+  }
+}

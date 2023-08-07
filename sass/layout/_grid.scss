@@ -1,0 +1,70 @@
+$dark: false;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  list-style: none;
+}
+html {
+  @include prefix(scroll-behavior, smooth, webkit moz o);
+  transition: 0.4s;
+}
+body {
+  @include prefix(behavior, smooth, webkit moz o);
+  @include prefix(transition, 0.4s, webkit o moz);
+  color: $txt-color;
+  background-color: $white;
+  &.dark {
+    color: $white;
+    background-color: $txt-color;
+    a {
+      color: $white;
+      &:not(.logo):hover {
+        color: $bg-color;
+      }
+    }
+  }
+}
+.container {
+  @include mobile {
+    width: 90%;
+  }
+  @include tablet {
+    width: 80%;
+  }
+  @include desktop {
+    width: 70%;
+  }
+  margin: {
+    left: auto;
+    right: auto;
+  }
+}
+
+// Color Svg
+svg {
+  fill: $bg-color;
+  max-width: $full;
+}
+
+// Remove Underline Link
+a {
+  text-decoration: none;
+  color: $txt-color;
+  @include prefix(transition, 0.4s, webkit moz o);
+  text-transform: capitalize;
+}
+p {
+  opacity: 0.7;
+}
+
+// Logo
+.logo {
+  font: {
+    size: 20px;
+    weight: 600;
+  }
+  letter-spacing: 1px;
+  text-transform: capitalize;
+}

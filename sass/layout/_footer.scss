@@ -1,0 +1,68 @@
+/* Start Footer */
+footer {
+  @include prefix(transition, 0.4s, webkit moz o);
+  padding: {
+    top: 40px;
+  }
+  background-color: rgba($bg-color, 0.7);
+  .footer-content {
+    @extend %flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    .app-info {
+      p {
+        margin: {
+          top: 10px;
+          bottom: 10px;
+        }
+      }
+    }
+    h3 {
+      text-transform: capitalize;
+      margin-bottom: 10px;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+    .social-media {
+      @extend %flex;
+      justify-content: center;
+      a {
+        font-size: 20px;
+        margin-left: 10px;
+        padding-top: 10px;
+        @include prefix(transition, 0.4s, webkit moz o);
+      }
+    }
+    @include mobile {
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+      div {
+        margin-bottom: 10px;
+      }
+    }
+  }
+  .copyright {
+    text-align: center;
+    margin-top: 40px;
+    padding: {
+      top: 20px;
+      bottom: 20px;
+    }
+    border-top: 1px solid rgba($white, 0.7);
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+    @include prefix(transition, 0.4s, webkit moz o);
+  }
+  /* Footer In Dark Mode */
+  &.dark {
+    background-color: rgba(102, 100, 94, 0.15);
+    .copyright {
+      span {
+        color: $bg-color;
+      }
+    }
+  }
+}
+/* End Footer */

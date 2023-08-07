@@ -1,0 +1,148 @@
+// Header
+%flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header {
+  z-index: 5;
+  padding: {
+    top: 20px;
+    bottom: 20px;
+  }
+  position: fixed;
+  width: $full;
+  background-color: $white;
+  @include prefix(transition, 0.4s, moz webkit o);
+  .header-content {
+    @extend %flex;
+  }
+  a {
+    text-transform: capitalize;
+    position: relative;
+    font-weight: 600;
+  }
+  .menu {
+    display: none;
+    font-size: 25px;
+    cursor: pointer;
+    @include mobile {
+      display: block;
+    }
+  }
+  .navbars {
+    @extend %flex;
+    flex: 1;
+    justify-content: center;
+    @include mobile {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: -200px;
+      width: 70%;
+      background-color: #fff;
+      height: 200px;
+      @include prefix(border-radius, 10px, webkit o moz);
+      @include prefix(transition, 0.4s, webkit o moz);
+      align-items: flex-start;
+      padding: 10px;
+      &.active {
+        top: 70px;
+      }
+      box-shadow: 0 0 10px #c0c0c0;
+    }
+  }
+  .links {
+    @extend %flex;
+    width: 55%;
+    a::before {
+      content: "";
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      @include prefix(border-radius, 50%, webkit moz o);
+      background-color: $txt-color;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -5px;
+      display: none;
+    }
+    a.active::before {
+      display: block;
+    }
+    @include mobile {
+      flex-direction: column;
+      width: 70%;
+      li {
+        width: $full;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+    }
+    a {
+      display: block;
+      @include mobile {
+        padding: 5px;
+      }
+    }
+  }
+  // When Srolling
+  &.scrolled {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+  .icon-light-dark {
+    @include prefix(transition, 0.4s, webkit moz o);
+    width: 20px;
+    height: 10px;
+    border: 2px solid $txt-color;
+    position: relative;
+    @include prefix(border-radius, 10px, webkit moz o);
+    margin-left: 50px;
+    cursor: pointer;
+    i {
+      display: block;
+      width: 5px;
+      height: 5px;
+      @include prefix(border-radius, 50%, webkit moz o);
+      @include prefix(transition, 0.4s, webkit moz o);
+      background-color: $txt-color;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 1px;
+    }
+    @include mobile {
+      margin: {
+        left: 0;
+        top: 10px;
+      }
+      position: absolute;
+      right: 25px;
+    }
+  }
+  // Header In Dark Mode
+  &.dark {
+    background-color: $txt-color;
+    &.scrolled {
+      box-shadow: rgba(255, 255, 255, 0.24) 0px 3px 8px;
+    }
+    .navbars {
+      @include mobile {
+        background-color: $txt-color;
+        box-shadow: 0 0 10px #434343;
+      }
+      .links {
+        a::before {
+          background-color: $white;
+        }
+      }
+    }
+    .icon-light-dark {
+      border-color: $white;
+      i {
+        right: 61%;
+        background-color: $white;
+      }
+    }
+  }
+}
